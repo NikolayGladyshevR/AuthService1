@@ -1,0 +1,19 @@
+spring:
+  config:
+    import: optional:file:.env
+  application:
+    name: AuthService1
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${app.keycloak.serverUrl}/realms/${app.keycloak.realm}
+server:
+  port: 8082
+app:
+  keycloak:
+    admin:
+      clientId: ${CLIENT_ID}
+      clientSecret: ${CLIENT_SECRET}
+    realm: ${REALM}
+    serverUrl: ${KEYCLOAK_SERVER_URL}
